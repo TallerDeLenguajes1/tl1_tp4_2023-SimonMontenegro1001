@@ -11,8 +11,7 @@ typedef struct Tarea {
     int Duracion;  // entre 10 – 100
 } Tarea;
 
-Tarea *BuscarTareaId(Tarea **tareas, int cant, int id);
-Tarea *BuscarTareaPalabra(Tarea **tareas, int cant, char *palabra);
+Tarea *BuscarTarea(Tarea **tareas, int cant, int id);
 Tarea **crearArregloNull(Tarea **arreglo, int cant);
 void cargarArreglo(Tarea **arreglo, int cant);
 void mostrarTarea(Tarea *tarea);
@@ -106,4 +105,13 @@ void mostrarTareasRealizadas(Tarea **tareasRealizadas, int cant) {
         }
     }
     puts("\n");
+}
+
+Tarea *BuscarTarea(Tarea **tareas, int cant, int id) {
+    for (int i = 0; i < cant; i++) {
+        if (tareas[i] != NULL && tareas[i]->TareaID == id) {
+            return tareas[i];
+        }
+    }
+    return NULL;
 }
